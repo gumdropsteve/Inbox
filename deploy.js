@@ -1,13 +1,12 @@
+require('dotenv').config();
+
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('Web3');
 const { interface, bytecode } = require('./compile');
 
-const mnemonic = process.env.MNEMONIC
-const url = process.env.RPC_URL
-
 const provider = new HDWalletProvider(
-    mnemonic,
-    url
+    process.env.MNEMONIC,
+    process.env.RPC_URL,
 );
 const web3 = new Web3(provider);
 
